@@ -6,7 +6,7 @@ public final class WeatherData {
 
     private final Double windSpeed;
 
-    private final int tempurature;
+    private final double tempurature;
 
     public String getHumidity() {
         return humidity;
@@ -16,7 +16,7 @@ public final class WeatherData {
         return rainfall;
     }
 
-    public int getTempurature() {
+    public double getTempurature() {
         return tempurature;
     }
 
@@ -24,7 +24,7 @@ public final class WeatherData {
         return windSpeed;
     }
 
-    public WeatherData(String humidity, Double rainfall, int temp, Double wind) {
+    public WeatherData(String humidity, Double rainfall, double temp, Double wind) {
         this.humidity = humidity;
         this.rainfall = rainfall;
         this.windSpeed = wind;
