@@ -3,6 +3,7 @@ package com.example.helloworld;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         runOnUiThread(() -> {
             if(data != null)
             {
-                textViewRain.setText(data.getRainfall());
-                textViewWind.setText(data.getWindSpeed());
-                textViewTemp.setText(data.getTemperature());
+                textViewRain.setText(data.getRainfall().toString());
+                textViewWind.setText(data.getWindSpeed().toString());
+                textViewTemp.setText(Integer.toString(data.getTempurature()));
                 textViewHumidity.setText(data.getHumidity());
             }else{
                 Log.e(TAG, "error");
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeViews();
         setContentView(R.layout.activity_main);
+        initializeViews();
         new Thread(() -> {
             // TODO: implement geolocating class to get the propper url later
             String urlString = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/127310/period/latest-day/data.xml";

@@ -2,9 +2,9 @@ package com.example.helloworld;
 
 public final class WeatherData {
     private final String humidity;
-    private final double rainfall;
+    private final Double rainfall;
 
-    private final double windSpeed;
+    private final Double windSpeed;
 
     private final int tempurature;
 
@@ -12,7 +12,7 @@ public final class WeatherData {
         return humidity;
     }
 
-    public double getRainfall() {
+    public Double getRainfall() {
         return rainfall;
     }
 
@@ -20,11 +20,11 @@ public final class WeatherData {
         return tempurature;
     }
 
-    public double getWindSpeed() {
+    public Double getWindSpeed() {
         return windSpeed;
     }
 
-    public WeatherData(String humidity, double rainfall, int temp, double wind) {
+    public WeatherData(String humidity, Double rainfall, int temp, Double wind) {
         this.humidity = humidity;
         this.rainfall = rainfall;
         this.windSpeed = wind;
