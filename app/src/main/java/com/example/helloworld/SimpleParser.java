@@ -40,10 +40,10 @@ public class SimpleParser {
 
         // parse the xml here
         // return it
-        int temp = 5;                 // från tempXml
-        double windSpeed = 3.2;       // från windXml
-        double windDirDeg = 180.0;    // från windDirXml
-        String clouds = "Mulet";      // från cloudXml
+        String temp = parseLastValue(tempXml).orElse("none");                 // från tempXml
+        String windSpeed = parseLastValue(windXml).orElse("none");       // från windXml
+        String windDirDeg = parseLastValue(windDirXml).orElse("none");    // från windDirX
+        String clouds = parseLastValue(cloudXml).orElse("none");      // från cloudXml
 
         return new WeatherData(clouds, windDirDeg, temp, windSpeed);
     }
