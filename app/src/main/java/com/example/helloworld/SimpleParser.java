@@ -5,6 +5,6 @@ public class SimpleParser {
 
         // parse the xml here
         // return it
-        return new WeatherData("very humid", 1.2 , 0,  53);
+        return new WeatherData("very humid", 1.2 , 0,  53.0);
     }
 }
