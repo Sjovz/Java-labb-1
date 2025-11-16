@@ -15,7 +15,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class SimpleParser {
-
     private static Optional<String> parseLastValue(String xmlData) {
         // https://www.geeksforgeeks.org/java/read-and-write-xml-files-in-java/
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -37,15 +36,15 @@ public class SimpleParser {
         return Double.parseDouble(value);
     }
 
-    public static WeatherData parseXml(String xmlData) {
+    public static WeatherData parseXml(String tempXml, String windXml, String windDirXml, String cloudXml) {
 
         // parse the xml here
         // return it
-        return new WeatherData(
-                "very humid",
-                1.2,
-                parseLastValue(xmlData).map(SimpleParser::asDoubleOrThrow).orElse(0.0),
-                53.0
-        );
+        int temp = 5;                 // från tempXml
+        double windSpeed = 3.2;       // från windXml
+        double windDirDeg = 180.0;    // från windDirXml
+        String clouds = "Mulet";      // från cloudXml
+
+        return new WeatherData(clouds, windDirDeg, temp, windSpeed);
     }
 }
