@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
         new Thread(() -> {
 
             String tempUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/127310/period/latest-day/data.xml";
-            String windUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/5/station/127310/period/latest-day/data.xml";
-            String rainUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/7/station/127310/period/latest-day/data.xml";
-            String cloudUrl = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/20/station/127310/period/latest-day/data.xml";
+            String windUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/4/station/127310/period/latest-day/data.xml";
+            String windDirUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/3/station/127310/period/latest-day/data.xml";
+            String cloudUrl = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/29/station/127310/period/latest-day/data.xml";
 
-            String tempXml  = XmlFetcher.getXml(tempUrl);
-            String windXml  = XmlFetcher.getXml(windUrl);
-            String rainXml  = XmlFetcher.getXml(rainUrl);
-            String cloudXml = XmlFetcher.getXml(cloudUrl);
+            String tempXml     = XmlFetcher.getXml(tempUrl);
+            String windXml     = XmlFetcher.getXml(windUrl);
+            String windDirXml  = XmlFetcher.getXml(windDirUrl);
+            String cloudXml    = XmlFetcher.getXml(cloudUrl);
 
-            WeatherData weatherData = SimpleParser.parseXml(tempXml, windXml, rainXml, cloudXml);
+            WeatherData weatherData = SimpleParser.parseXml(tempXml, windXml, windDirXml, cloudXml);
             updateWeatherData(weatherData);
 
         }).start();

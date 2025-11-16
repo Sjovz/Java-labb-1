@@ -1,15 +1,16 @@
 package com.example.helloworld;
 
 public class SimpleParser {
-    public static WeatherData parseXml(String tempXml, String windXml, String rainXml, String cloudXml) {
+
+    public static WeatherData parseXml(String tempXml, String windXml, String windDirXml, String cloudXml) {
 
         // parse the xml here
         // return it
-        int temp = 5;            // empXml
-        double wind = 3.2;       // windXml
-        double rain = 0.0;       // rainXml
-        String clouds = "Mulet"; // cloudXml
+        int temp = 5;                 // från tempXml
+        double windSpeed = 3.2;       // från windXml
+        double windDirDeg = 180.0;    // från windDirXml
+        String clouds = "Mulet";      // från cloudXml
 
-        return new WeatherData(clouds, rain, temp, wind);
+        return new WeatherData(clouds, windDirDeg, temp, windSpeed);
     }
 }
