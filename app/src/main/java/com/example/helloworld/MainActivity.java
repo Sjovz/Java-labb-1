@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         runOnUiThread(() -> {
             if(data != null)
             {
-                textViewRain.setText(data.getRainfall().toString());
-                textViewWind.setText(data.getWindSpeed().toString());
-                textViewTemp.setText(Double.toString(data.getTempurature()));
+                textViewRain.setText(data.getRainfall());
+                textViewWind.setText(data.getWindSpeed());
+                textViewTemp.setText(data.getTempurature());
                 textViewHumidity.setText(data.getHumidity());
             }else{
                 Log.e(TAG, "error");
