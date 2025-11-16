@@ -60,11 +60,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initializeViews();
         new Thread(() -> {
-            // TODO: implement geolocating class to get the propper url later
-            String urlString = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/127310/period/latest-day/data.xml";
-            String data = XmlFetcher.getXml(urlString);
-            WeatherData weatherData = SimpleParser.parseXml(data);
+
+            String tempUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/127310/period/latest-day/data.xml";
+            String windUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/5/station/127310/period/latest-day/data.xml";
+            String rainUrl  = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/7/station/127310/period/latest-day/data.xml";
+            String cloudUrl = "https://opendata-download-metobs.smhi.se/api/version/latest/parameter/20/station/127310/period/latest-day/data.xml";
+
+            String tempXml  = XmlFetcher.getXml(tempUrl);
+            String windXml  = XmlFetcher.getXml(windUrl);
+            String rainXml  = XmlFetcher.getXml(rainUrl);
+            String cloudXml = XmlFetcher.getXml(cloudUrl);
+
+            WeatherData weatherData = SimpleParser.parseXml(tempXml, windXml, rainXml, cloudXml);
             updateWeatherData(weatherData);
+
         }).start();
     }
 }
